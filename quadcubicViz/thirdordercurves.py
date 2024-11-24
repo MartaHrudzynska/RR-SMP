@@ -631,9 +631,9 @@ class WitchOfAgnesi:
         plt.axis('equal')
         plt.show()
 
-class CartesianPlane:
+class RightStrophoid:
     """
-    A class for constructing and visualizing the Cartesian plane curve in a Cartesian coordinate system.
+    A class for constructing and visualizing the right strophoid curve in a Cartesian coordinate system.
 
     Attributes:
         a (float): The parameter affecting the curve's shape.
@@ -661,7 +661,7 @@ class CartesianPlane:
             Generates a contour plot of the curve, including axes, grid, and optional asymptote.
     """
 
-    def __init__(self, a, num_points=1000, x_scale=1, y_scale=1, x_offset=0, y_offset=0, visible_asymptote=False):
+    def __init__(self, a, num_points=2000, x_scale=1, y_scale=1, x_offset=0, y_offset=0, visible_asymptote=False):
         self.Y_rot = None
         self.X_rot = None
         self.a = a  # The parameter of the curve
@@ -679,12 +679,13 @@ class CartesianPlane:
 
     def calculate_Z(self):
         """
-        Computes the values of Z based on the equation for the curve.
+        Computes the values of Z based on the equation for the right strophoid.
 
         Returns:
             np.ndarray: A 2D array of computed Z values for the coordinate grid.
         """
-        Z = (self.X * self.x_scale + self.x_offset) ** 3 + (self.Y * self.y_scale - self.y_offset) ** 3 - 3*self.a*self.X*self.Y 
+        # Right strophoid equation: Z = (Y^2 * (a + X) - X^2 * (a - X - X)) 
+        Z = (self.Y * self.y_scale - self.y_offset) ** 2 * (self.a + self.X * self.x_scale) - (self.X * self.x_scale) ** 2 * (self.a - self.X - self.X * self.x_scale)
         return Z
 
     def rotate(self, angle_deg):
@@ -706,7 +707,7 @@ class CartesianPlane:
 
     def find_asymptotes(self):
         """
-        Finds the asymptote for the curve.
+        Finds the asymptote for the right strophoid.
 
         Returns:
             float: The x-coordinate of the asymptote.
@@ -717,7 +718,7 @@ class CartesianPlane:
         """
         Generates a contour plot of the curve.
 
-        Displays the curve, coordinate axes, and an optional asymptote.
+        Displays the right strophoid, coordinate axes, and an optional asymptote.
         """
         Z = self.calculate_Z()  # Compute Z values
 
@@ -730,14 +731,13 @@ class CartesianPlane:
         plt.contour(X_plot, Y_plot, Z, levels=[0], colors='blue')  # Plot the contour for Z = 0
 
         # Add title and axis labels
-        plt.title(f'Contour plot of the Cartesian plane curve (a={self.a})')
+        plt.title(f'Contour plot of the right strophoid curve (a={self.a})')
         plt.xlabel('X-axis')
         plt.ylabel('Y-axis')
 
         # Add coordinate axes
         plt.axhline(0, color='black', linewidth=0.7)  # Horizontal axis
         plt.axvline(0, color='black', linewidth=0.7)  # Vertical axis
-
 
         # Enable grid
         plt.grid(True)
