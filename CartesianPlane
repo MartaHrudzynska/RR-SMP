@@ -126,3 +126,6 @@ class CartesianPlane:
 
         # Display the plot
         plt.show()
+CP = CartesianPlane(a = 2 , visible_asymptote=True)
+CP.rotate(74)
+CP.plot()
