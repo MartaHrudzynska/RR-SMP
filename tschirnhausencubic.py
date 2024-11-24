@@ -25,21 +25,26 @@ class TschirnhausenCubic:
         y = self.a * t * (3 - t**2)
         return x, y
     
-    def plot(self, t_range=(-1, 1), num_points=1000, color='blue', 
+    def plot(self, x_range=(-1, 1), num_points=1000, color='blue', 
             show_grid=True, show_axis=True, figsize=(10, 8)):
         """
-        Visualize the curve.
-        :param t_range: range of the parameter t as a tuple (start, end)
-        :param num_points: number of points to calculate
-        :param color: color of the curve
-        :param show_grid: whether to show the grid
-        :param show_axis: whether to show the axes
-        :param figsize: size of the figure
+        Plot the Tschirnhausen Cubic curve within the specified ranges.
+
+        Parameters:
+        x_range (tuple): The range of x-values to plot as (min, max).
+        num_points (int): The number of points to use for plotting the curve.
+        color (str): The color of the curve line.
+        show_grid (bool): Whether to display a grid on the plot.
+        show_axis (bool): Whether to show axis lines (if False, axis lines are hidden).
+        figsize (tuple): The size of the plot in inches as (width, height).
+        
+        Returns:
+        None: Displays the curve plot.
         """
-        x, y = self.calculate_points(t_range[0], t_range[1], num_points)
+        x, y = self.calculate_points(x_range[0], x_range[1], num_points)
         
         plt.figure(figsize=figsize)
-        plt.plot(x, y, color=color, label=f'Tschirnhausen Cubic (a={self.a})')
+        plt.plot(x, y, color=color)
         
         if show_grid:
             plt.grid(True, linestyle='--', alpha=0.7)
@@ -50,6 +55,5 @@ class TschirnhausenCubic:
         plt.title('Tschirnhausen Cubic Curve')
         plt.xlabel('x')
         plt.ylabel('y')
-        plt.legend()
-        plt.axis('equal')  # Maintain aspect ratio
+        plt.axis('equal')
         plt.show()

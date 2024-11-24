@@ -30,28 +30,43 @@ class TridentCurve:
             raise ValueError("x cannot be zero (to avoid division by zero).")
         return self.d / x - self.a * x**2 - self.b * x - self.c
     
-    def plot(self, x_range=(-3, 3), num_points=1000):
+    def plot(self, x_range=(-1, 1), y_range = (-10,10), num_points=1000, color='blue', 
+            show_grid=True, show_axis=True, figsize=(10, 8)):
         """
-        Plot the graph of the function.
+        Plot the Trident curve within the specified ranges.
+
+        Parameters:
+        x_range (tuple): The range of x-values to plot as (min, max).
+        y_range (tuple): The range of y-values to display on the plot as (min, max).
+        num_points (int): The number of points to use for plotting the curve.
+        color (str): The color of the curve line.
+        show_grid (bool): Whether to display a grid on the plot.
+        show_axis (bool): Whether to show axis lines (if False, axis lines are hidden).
+        figsize (tuple): The size of the plot in inches as (width, height).
         
-        :param x_range: Tuple (min, max) for the x-axis.
-        :param num_points: Number of points to plot the graph.
+        Returns:
+        None: Displays the curve plot.
         """
         x = np.linspace(x_range[0], x_range[1], num_points)
         x = x[x != 0]  # Exclude x = 0 to avoid division by zero
 
         y = self.d / x - self.a * x**2 - self.b * x - self.c
 
-        plt.figure(figsize=(8, 6))
-        plt.plot(x, y, label=r"$y = \frac{d}{x} - ax^2 - bx - c$", color='purple')
-        plt.axhline(0, color='black', linewidth=0.8, linestyle='--', label='y = 0')
-        plt.axvline(0, color='black', linewidth=0.8, linestyle='--', label='x = 0 (asymptote)')
-        plt.title("Graph of the Curve: $y = \\frac{d}{x} - ax^2 - bx - c$", fontsize=14)
-        plt.xlabel("x", fontsize=12)
-        plt.ylabel("y", fontsize=12)
-        plt.legend()
-        plt.grid()
-        plt.ylim(-10, 10)  # y-axis limits for better visibility
+        plt.figure(figsize=figsize)
+        plt.plot(x, y, color=color)
+        
+        if show_grid:
+            plt.grid(True, linestyle='--', alpha=0.7)
+        
+        if not show_axis:
+            plt.axis('off')
+        
+        plt.ylim(y_range)
+        plt.title('Trident Curve')
+        plt.xlabel('x')
+        plt.ylabel('y')
+        plt.axis('equal')
+        plt.ylim(y_range)
         plt.show()
 
 

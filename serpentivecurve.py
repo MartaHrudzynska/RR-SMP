@@ -29,23 +29,35 @@ class SerpentiveCurve:
         """
         return (self.a * self.b * x) / (x**2 + self.a**2)
     
-    def plot(self, x_range=(-10, 10), num_points=1000):
+    def plot(self, x_range=(-1, 1), num_points=1000, color='blue', 
+            show_grid=True, show_axis=True, figsize=(10, 8)):
         """
-        Plot the curve using matplotlib.
+        Plot the Serpentine curve within the specified ranges.
+
+        Parameters:
+        x_range (tuple): The range of x-values to plot as (min, max).
+        num_points (int): The number of points to use for plotting the curve.
+        color (str): The color of the curve line.
+        show_grid (bool): Whether to display a grid on the plot.
+        show_axis (bool): Whether to show axis lines (if False, axis lines are hidden).
+        figsize (tuple): The size of the plot in inches as (width, height).
         
-        Args:
-            x_range (tuple): Range of x values (min, max)
-            num_points (int): Number of points for plotting
+        Returns:
+        None: Displays the curve plot.
         """
         x = np.linspace(x_range[0], x_range[1], num_points)
         y = self.calculate_y(x)
         
-        plt.figure(figsize=(10, 6))
-        plt.plot(x, y)
-        plt.grid(True)
-        plt.title("Serpentine Curve")
+        plt.figure(figsize=figsize)
+        plt.plot(x, y, color=color)
+        
+        if show_grid:
+            plt.grid(True, linestyle='--', alpha=0.7)
+        
+        if not show_axis:
+            plt.axis('off')
+            
+        plt.title('Serpentive Curve')
         plt.xlabel('x')
         plt.ylabel('y')
-        plt.axhline(y=0, color='k', linestyle='-', alpha=0.3)
-        plt.axvline(x=0, color='k', linestyle='-', alpha=0.3)
         plt.show()

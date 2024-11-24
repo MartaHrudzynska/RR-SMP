@@ -69,14 +69,30 @@ class Parabola:
             x2 = (-self.b - np.sqrt(discriminant)) / (2*self.a)
             return sorted([x1, x2])
     
-    def plot(self, x_range: Tuple[float, float] = None, show_features: bool = True):
+    def plot(self, x_range: Tuple[float, float] = None, show_features: bool = True, color='blue', 
+            show_grid=True, show_axis=True, figsize=(10, 8)):
         """
-        Visualize the parabola and its characteristics
-        
+        Visualize the parabola and its key characteristics.
+    
         Args:
-            x_range: tuple (x_min, x_max) defining the range for plotting
-                    If None, automatically sets range around vertex
-            show_features: whether to show additional features (vertex, axis of symmetry, roots)
+            x_range (Tuple[float, float], optional): The range of x-values for the plot as (x_min, x_max).
+                If None, the range is automatically set to span 5 units on either side of the vertex.
+            show_features (bool): Whether to highlight key features of the parabola, including:
+                - Vertex
+                - Axis of symmetry
+                - Roots (if they exist)
+            color (str): The color of the parabola curve. Defaults to 'blue'.
+            show_grid (bool): Whether to display a grid on the plot. Defaults to True.
+            show_axis (bool): Whether to display the axis lines. If False, axis lines are hidden. Defaults to True.
+            figsize (Tuple[float, float]): The size of the plot in inches as (width, height). Defaults to (10, 8).
+    
+        Returns:
+            None: Displays the plot of the parabola.
+    
+        Additional Features:
+            - The vertex is marked with a red dot and labeled as 'Vertex'.
+            - The axis of symmetry is shown as a green dashed line.
+            - The roots (if any) are marked with black dots and labeled as 'Roots'.
         """
         if x_range is None:
             vertex_x = self.get_vertex()[0]
@@ -85,11 +101,11 @@ class Parabola:
         x = np.linspace(x_range[0], x_range[1], 1000)
         y = [self.calculate_y(xi) for xi in x]
         
-        plt.figure(figsize=(10, 6))
+        plt.figure(figsize=figsize)
         plt.grid(True, linestyle='--', alpha=0.7)
         
         # Main parabola plot
-        plt.plot(x, y, 'b-', label=f'y = {self.a}x² + {self.b}x + {self.c}')
+        plt.plot(x, y, label=f'y = {self.a}x² + {self.b}x + {self.c}', color=color)
         
         if show_features:
             vertex = self.get_vertex()
@@ -102,7 +118,14 @@ class Parabola:
             if roots:
                 root_y = [0] * len(roots)
                 plt.plot(roots, root_y, 'ko', label='Roots')
+        
+        if show_grid:
+            plt.grid(True, linestyle='--', alpha=0.7)
+        
+        if not show_axis:
+            plt.axis('off')
             
+
         plt.xlabel('x')
         plt.ylabel('y')
         plt.title('Parabola Plot')
