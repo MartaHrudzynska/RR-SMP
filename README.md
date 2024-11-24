@@ -7,7 +7,7 @@ Programming and Computational Methods
 Visualization and Analysis of Curves in the Cartesian Coordinate System Using Python
 
 ## Participants:
-- Dmitro Halaychuk
+- Dmytro Halaychuk
 - Marta Hrudzynska
 - Oleksandr Kondratiuk
 
