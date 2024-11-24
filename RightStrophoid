@@ -126,3 +126,6 @@ class RightStrophoid:
 
         # Display the plot
         plt.show()
+CP = RightStrophoid(a = 2 )
+CP.rotate(21)
+CP.plot()
