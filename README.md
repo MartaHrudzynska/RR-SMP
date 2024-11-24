@@ -27,7 +27,7 @@ This package is designed for the construction and analysis of various types of c
 ## Example Usage:
 
 ```python
-from right_strophoid import RightStrophoid
+from thirdordercurves import RightStrophoid
 
 # Create a RightStrophoid object with parameter a = 1
 curve = RightStrophoid(a=1, visible_asymptote=True)
