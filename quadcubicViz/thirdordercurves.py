@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import fmin
 from scipy.integrate import quad
-from base_curve import CurveOrder3
+from base_curve.Curve import CurveOrder3
 
 
 class CissoidOfDiocles(CurveOrder3):
