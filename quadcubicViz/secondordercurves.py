@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from typing import Tuple, List
 
 class Ellipse:
     """
@@ -170,7 +169,7 @@ class Parabola:
         y = self.calculate_y(x)
         return (x, y)
     
-    def find_roots(self) -> List[float] | None:
+    def find_roots(self) -> list[float] | None:
         """
         Find roots of the quadratic equation ax² + bx + c = 0
         
@@ -191,7 +190,7 @@ class Parabola:
             x2 = (-self.b - np.sqrt(discriminant)) / (2*self.a)
             return sorted([x1, x2])
     
-    def plot(self, x_range: Tuple[float, float] = None, show_features: bool = True, color='blue', 
+    def plot(self, x_range: tuple[float, float] = None, show_features: bool = True, color='blue', 
             show_grid=True, show_axis=True, figsize=(10, 8)):
         """
         Visualize the parabola and its key characteristics.
