@@ -39,6 +39,13 @@ curve.rotate(45)
 curve.plot()
 ```
 ![image](https://github.com/user-attachments/assets/5cc39850-fb5a-4afc-a815-f5c0a63056ed)
+```python
+from quadcubicViz.secondordercurves import Ellipse
+
+ellipse = Ellipse(5, 3, x0=2, y0=3)
+ellipse.describe(3, 4)
+ellipse.plot()
+```
 
 
 
