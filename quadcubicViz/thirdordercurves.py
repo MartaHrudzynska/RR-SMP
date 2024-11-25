@@ -2,9 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import fmin
 from scipy.integrate import quad
+from base_curve import CurveOrder3
 
 
-class CissoidOfDiocles:
+class CissoidOfDiocles(CurveOrder3):
     def __init__(self, a, visible_asymptote=True, visible_circle=True):
         """
         Initializes the Folium of Descartes with parameter for customization.
@@ -54,7 +55,7 @@ class CissoidOfDiocles:
         plt.grid(True)
         plt.show()
 
-class ConchoidOfDeSluze:
+class ConchoidOfDeSluze(CurveOrder3):
     def __init__(self, a):
         """
         Initializes the Conchoid of de Sluze with parameter for customization.
@@ -128,7 +129,7 @@ class ConchoidOfDeSluze:
             plt.tight_layout()
             plt.show()
 
-class CubicParabola:
+class CubicParabola(CurveOrder3):
     def __init__(self, A, B, C, D):
         """
         Initializes a cubic parabola with the given coefficients.
@@ -182,7 +183,7 @@ class CubicParabola:
         print(f"Vertex: ({x_vertex:.2f}, {y_vertex:.2f})")
 
 
-class FoliumOfDescartes:
+class FoliumOfDescartes(CurveOrder3):
     def __init__(self, a, visible_asymptote=True):
         """
         Initializes the Folium of Descartes with parameter for customization.
@@ -234,7 +235,7 @@ class FoliumOfDescartes:
         plt.grid(True)
         plt.show()
 
-class SemicubicParabola:
+class SemicubicParabola(CurveOrder3):
     """
     A class for constructing and visualizing a semicubic parabola in the form y^2 = ax^3.
 
@@ -316,7 +317,7 @@ class SemicubicParabola:
         plt.legend()
         plt.show()
 
-class TridentCurve:
+class TridentCurve(CurveOrder3):
     """
     Class representing Trident curve.
     """
@@ -332,7 +333,7 @@ class TridentCurve:
         self.c = c
         self.d = d
         
-    def calculate_points(self, x):
+    def equation(self, x):
         """
         Calculate the value of y for a given x.
         
@@ -383,7 +384,7 @@ class TridentCurve:
         plt.ylim(y_range)
         plt.show()
 
-class TrisectrixOfMaclaurin:
+class TrisectrixOfMaclaurin(CurveOrder3):
     """
     A class for constructing and visualizing the Trisectrix of Maclaurin in a Cartesian coordinate system.
 
@@ -429,7 +430,7 @@ class TrisectrixOfMaclaurin:
         self.y = np.linspace(-16 * a, 16 * a, num_points)
         self.X, self.Y = np.meshgrid(self.x, self.y)
 
-    def calculate_Z(self):
+    def equation(self):
         """
         Computes the values of Z based on the Trisectrix of Maclaurin equation.
 
@@ -514,7 +515,7 @@ class TrisectrixOfMaclaurin:
         # Display the plot
         plt.show()
 
-class SerpentiveCurve:
+class SerpentiveCurve(CurveOrder3):
     """
     Class representing Serpentine curve.
     """
@@ -530,7 +531,7 @@ class SerpentiveCurve:
         self.a = a
         self.b = b
     
-    def calculate_y(self, x):
+    def equation(self, x):
         """
         Calculate y value for given x using the curve equation.
         
@@ -574,7 +575,7 @@ class SerpentiveCurve:
         plt.ylabel('y')
         plt.show()
 
-class TschirnhausenCubic:
+class TschirnhausenCubic(CurveOrder3):
     """
     Class representing Tschirnhausen Cubic curve.
     """
@@ -585,7 +586,7 @@ class TschirnhausenCubic:
         """
         self.a = a
         
-    def calculate_points(self, t_start=-1, t_end=1, num_points=1000):
+    def equation(self, t_start=-1, t_end=1, num_points=1000):
         """
         Calculate points on the curve.
         :param t_start: starting value of the parameter t
@@ -631,7 +632,7 @@ class TschirnhausenCubic:
         plt.axis('equal')
         plt.show()
 
-class WitchOfAgnesi:
+class WitchOfAgnesi(CurveOrder3):
     """
     Class representing Witch of Agnesi curve.
     """
@@ -645,7 +646,7 @@ class WitchOfAgnesi:
         """
         self.a = a
     
-    def calculate_y(self, x):
+    def equation(self, x):
         """
         Calculate y value for given x using the curve equation.
         
@@ -691,7 +692,7 @@ class WitchOfAgnesi:
         plt.axis('equal')
         plt.show()
 
-class RightStrophoid:
+class RightStrophoid(CurveOrder3):
     """
     A class for constructing and visualizing the right strophoid curve in a Cartesian coordinate system.
 
@@ -737,7 +738,7 @@ class RightStrophoid:
         self.y = np.linspace(-16 * a, 16 * a, num_points)
         self.X, self.Y = np.meshgrid(self.x, self.y)
 
-    def calculate_Z(self):
+    def equation(self):
         """
         Computes the values of Z based on the equation for the right strophoid.
 
