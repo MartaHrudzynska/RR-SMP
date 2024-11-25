@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from base_curve import CurveOrder2
+from base_curve.Curve import CurveOrder2
 
 class Ellipse(CurveOrder2):
     """
