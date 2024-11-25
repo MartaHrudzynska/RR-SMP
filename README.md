@@ -25,7 +25,6 @@ This package is designed for the construction and analysis of various types of c
 - **Visualization**: Customize the appearance of the plot, including color, legend, and adding auxiliary lines.
 
 ## Example Usage:
-
 ```python
 from thirdordercurves import RightStrophoid
 
@@ -38,3 +37,6 @@ curve.plot()
 # Rotate the curve by 45 degrees
 curve.rotate(45)
 curve.plot()
+```
+
+
