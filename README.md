@@ -46,13 +46,22 @@ ellipse = Ellipse(5, 3, x0=2, y0=3)
 ellipse.describe(3, 4)
 ellipse.plot()
 ```
-Focal distance: 4.00
-Eccentricity: 0.80
-Focal parameter: 1.80
-Compression ratio: 0.40
-Area: 47.12
-Perimeter (approximate): 25.53
-Focal radii for point (3, 4): r1 = 5.10, r2 = 3.16
+## Оптичні характеристики
+
+Фокусна відстань: 4.00  
+Ексцентриситет: 0.80  
+Фокусний параметр: 1.80  
+Коефіцієнт стиснення: 0.40  
+Площа: 47.12  
+Периметр (приблизно): 25.53  
+
+## Фокусні радіуси для точки (3, 4)
+
+r1: 5.10  
+r2: 3.16
+
+
+![image](https://github.com/user-attachments/assets/e77d48f0-916e-4b92-b0a2-4f8e625795ab)
 
 
 
