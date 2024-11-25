@@ -38,5 +38,7 @@ curve.plot()
 curve.rotate(45)
 curve.plot()
 ```
+![image](https://github.com/user-attachments/assets/5cc39850-fb5a-4afc-a815-f5c0a63056ed)
+
 
 
