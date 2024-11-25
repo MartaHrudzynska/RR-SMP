@@ -1,7 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from base_curve import CurveOrder2
 
-class Ellipse:
+class Ellipse(CurveOrder2):
     """
     A class for working with ellipses.
 
@@ -123,7 +124,7 @@ class Ellipse:
         plt.show()
 
 
-class Parabola:
+class Parabola(CurveOrder2):
     """
     Class representing Parabola.
     """
@@ -146,7 +147,7 @@ class Parabola:
         self.b = b
         self.c = c
         
-    def calculate_y(self, x: float) -> float:
+    def equation(self, x: float) -> float:
         """
         Calculate y value for a given x
         
@@ -253,7 +254,7 @@ class Parabola:
         plt.legend()
         plt.show()
 
-class Hyperbole:
+class Hyperbole(CurveOrder2):
     """
     A class for constructing and visualizing a hyperbola of the second order in a Cartesian coordinate system.
     """
@@ -273,7 +274,7 @@ class Hyperbole:
         self.y = np.linspace(-4 * b, 4 * b, num_points)
         self.X, self.Y = np.meshgrid(self.x, self.y)
 
-    def calculate_Z(self):
+    def equation(self):
         """
         Computes the values of Z based on the equation for the hyperbola.
 
